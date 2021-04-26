@@ -45,7 +45,7 @@ export default {
     name: 'PhotosPerDate',
     mounted() {
         this.loadData();
-        // criar um handler pro timer
+        // criar um handler para o timer, desta maneira poderemos encerrar quando necessário
         this.execution = setInterval(() => this.loadData(), this.time);
     },
     data() {
@@ -110,7 +110,7 @@ export default {
             // Filtrar os arrays para cada data distinta
             set.forEach((element) => {
                 let ret = rec.filter((el) => el.fulfilled_on.split('T')[0] == element);
-                // Insere os dados com o formato de objeto aceito pelo componente
+                // Insere os dados com o formato de objeto aceito pelo componente gráfico
                 this.data.push({
                     key: element,
                     value: ret.length,

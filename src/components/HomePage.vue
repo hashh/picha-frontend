@@ -81,12 +81,7 @@ export default {
       FeedbackForm,
   },
   mounted() {
-    Photo.index().then(response => {
-        this.cards = response.data;
-        console.log(response.data);
-    }).catch((error) => {
-        console.log(error)
-    })
+    this.loadData();
   },
   data() {
       return {
@@ -95,6 +90,14 @@ export default {
       };
   },
   methods: {
+    loadData() {
+      Photo.index().then(response => {
+        this.cards = response.data;
+        console.log(response.data);
+      }).catch((error) => {
+        console.log(error)
+      });
+    },
     goToGraphic() {
           this.$router.push({
             name: 'PhotosPerDate',
